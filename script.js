@@ -44,13 +44,26 @@ function ellipse (size, numbers, a, centeredx, centeredy, sized) {
   return ('x: ' + arrx + '\n' + 'y: ' + arry)
 }
 
+function ellipseSheet (size, numbers, a, centeredx, centeredy, sized) {
+  var e = 1/a;
+  var arrx = '';
+  var arry = '';
+  for (i = 0; i < numbers + 1; i++){
+    arrx += (size * (sin(((Math.radians(360)/numbers) * i)) * sized ) + centeredx) + '\n';
+    arry += (size * (e * cos(((Math.radians(360)/numbers) * i)) * sized ) + centeredy) + '\n';
+  }
+  return (arrx + '\n' + arry)
+}
+
 
 var d = 1000;
 var degrees = 360;
 var radians = Math.radians(360);
 
 
-console.log(ellipse (1, 100, 2, 0, 0, 1))
+console.log(ellipseSheet (1, 100, 2, 0, 0, 1))
+
+
 
 
 
